@@ -7,7 +7,7 @@ function createPost(post) {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
       posts.push(post)
-      const error = false;
+      const error = true;
       if (!error) {
          resolve();
       } else {
@@ -25,4 +25,8 @@ function getPosts() {
   }, 1000)
 }
 
-createPost({ title: 'third post', body: 'this is the third post' }).then(getPosts);
+createPost({ title: 'third post', body: 'this is the third post' })
+  .then(getPosts)
+  .catch(function (err) {
+  console.log(err)
+});
